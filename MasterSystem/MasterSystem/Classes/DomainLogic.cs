@@ -1,4 +1,6 @@
-﻿using MasterSystem.DataContracts;
+﻿using System;
+using System.Threading;
+using MasterSystem.DataContracts;
 using MasterSystem.Interfaces;
 
 namespace MasterSystem.Classes
@@ -27,6 +29,14 @@ namespace MasterSystem.Classes
         {
             Application application = DataOperator.GetApplication(applicationNumber);
             _syncSender.SendData(application);
+        }
+
+        public void SaveApplication(Application application)
+        {
+
+            Console.WriteLine($"{application.Number}: {application.Title}");
+            
+            Thread.Sleep(10000);
         }
     }
 }
