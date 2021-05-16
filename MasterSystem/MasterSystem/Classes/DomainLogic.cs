@@ -5,18 +5,18 @@ namespace MasterSystem.Classes
 {
     public class DomainLogic
     {
-        private readonly ISynchronizationModule SyncModule;
+        private readonly ISynchronizationSender _syncSender;
         private readonly IDataOperator DataOperator;
 
         /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="dataOperator">Экземпляр класса, реализующий работу с данными</param>
-        /// <param name="syncModule">Экземпляр класса, реализующий механизмы интеграции со сторонней системой</param>
-        public DomainLogic(IDataOperator dataOperator, ISynchronizationModule syncModule)
+        /// <param name="syncSender">Экземпляр класса, реализующий механизмы интеграции со сторонней системой</param>
+        public DomainLogic(IDataOperator dataOperator, ISynchronizationSender syncSender)
         {
             DataOperator = dataOperator;
-            SyncModule = syncModule;
+            _syncSender = syncSender;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace MasterSystem.Classes
         public void SendApplication(string applicationNumber)
         {
             Application application = DataOperator.GetApplication(applicationNumber);
-            SyncModule.SendData(application);
+            _syncSender.SendData(application);
         }
     }
 }

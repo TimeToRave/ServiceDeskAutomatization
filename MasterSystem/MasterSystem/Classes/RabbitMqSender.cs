@@ -1,11 +1,9 @@
-﻿using System;
-using System.Text;
-using MasterSystem.Interfaces;
+﻿using System.Text;
 using RabbitMQ.Client;
 
 namespace MasterSystem.Classes
 {
-    public class RabbitMqSynchronyzationModule : ISynchronizationModule
+ public class RabbitMqSender
     {
         /// <summary>
         /// Название обменника
@@ -21,34 +19,12 @@ namespace MasterSystem.Classes
         /// Ключ маршрутизации
         /// </summary>
         private string RoutingKey { get; }
-
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="exchangeName">Название обменника</param>
-        /// <param name="queueName">Название очереди</param>
-        /// <param name="routingKey">Ключ маршрутизации</param>
-        public RabbitMqSynchronyzationModule(string exchangeName, string queueName, string routingKey)
+        
+        public RabbitMqSender(string exchangeName, string queueName, string routingKey)
         {
             ExchangeName = exchangeName;
             QueueName = queueName;
             RoutingKey = routingKey;
-        }
-
-        /// <summary>
-        /// Выполняет отправку бизнес-объекта в RabbitMQ
-        /// </summary>
-        /// <param name="sendingObject"></param>
-        public void SendData(IDomainObject sendingObject)
-        {
-            var message = sendingObject.ConvertToJson();
-            var model = PrepareModel();
-            SendMessageToQueue(model, message);
-        }
-
-        public void RecieveData()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -57,10 +33,10 @@ namespace MasterSystem.Classes
         /// <returns>Соединение</returns>
         private IConnection GetRabbitMqConnection()
         {
-            ConnectionFactory connectionFactory = new ConnectionFactory();
-            connectionFactory.HostName = "localhost";
-            connectionFactory.UserName = "guest";
-            connectionFactory.Password = "guest";
+            ConnectionFactory connectionFactory = new ConnectionFactory
+            {
+                HostName = "localhost", UserName = "guest", Password = "guest"
+            };
 
             return connectionFactory.CreateConnection();
         }
@@ -84,10 +60,10 @@ namespace MasterSystem.Classes
         /// <summary>
         /// Выполняет отправку сообщений в RabbitMQ
         /// </summary>
-        /// <param name="model">Модель</param>
         /// <param name="message">Отправляемое сообщение</param>
-        private void SendMessageToQueue(IModel model, string message)
+        public void SendMessageToQueue(string message)
         {
+            var model = PrepareModel();
             IBasicProperties basicProperties = model.CreateBasicProperties();
             basicProperties.Persistent = true;
             byte[] payload = Encoding.UTF8.GetBytes(message);
