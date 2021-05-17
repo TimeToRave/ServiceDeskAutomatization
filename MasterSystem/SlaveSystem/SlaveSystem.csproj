@@ -12,37 +12,37 @@
       <Compile Remove="RabbitMqSynchronizationSubscriber.cs" />
       <Compile Remove="Service.cs" />
       <Compile Include="..\MasterSystem\Classes\FileDataOperator.cs">
-        <Link>FileDataOperator.cs</Link>
+        <Link>Links\FileDataOperator.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\Classes\FileOperator.cs">
-        <Link>FileOperator.cs</Link>
+        <Link>Links\FileOperator.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\Classes\RabbitMqClient.cs">
-        <Link>RabbitMqClient.cs</Link>
+        <Link>Links\RabbitMqClient.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\Classes\RabbitMqSynchronizationSender.cs">
-        <Link>RabbitMqSynchronizationSender.cs</Link>
+        <Link>Links\RabbitMqSynchronizationSender.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\Classes\RabbitMqSynchronizationSubscriber.cs">
-        <Link>RabbitMqSynchronizationSubscriber.cs</Link>
+        <Link>Links\RabbitMqSynchronizationSubscriber.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\DataContracts\Application.cs">
-        <Link>Application.cs</Link>
+        <Link>Links\Application.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\DataContracts\Service.cs">
-        <Link>Service.cs</Link>
+        <Link>Links\Service.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\Interfaces\IDataOperator.cs">
-        <Link>IDataOperator.cs</Link>
+        <Link>Links\IDataOperator.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\Interfaces\IDomainLogic.cs">
-        <Link>IDomainLogic.cs</Link>
+        <Link>Links\IDomainLogic.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\Interfaces\ISynchronizationSender.cs">
-        <Link>ISynchronizationSender.cs</Link>
+        <Link>Links\ISynchronizationSender.cs</Link>
       </Compile>
       <Compile Include="..\MasterSystem\Interfaces\ISynchronizationSubscriber.cs">
-        <Link>ISynchronizationSubscriber.cs</Link>
+        <Link>Links\ISynchronizationSubscriber.cs</Link>
       </Compile>
     </ItemGroup>
 
