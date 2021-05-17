@@ -4,7 +4,7 @@ namespace MasterSystem.Classes
 {
    public class RabbitMqSynchronizationSender : ISynchronizationSender
     {
-        private readonly RabbitMqSender _rabbitMqSender;
+        private readonly RabbitMqSyncModule _rabbitMqClient;
 
         /// <summary>
         /// Конструктор
@@ -14,7 +14,7 @@ namespace MasterSystem.Classes
         /// <param name="routingKey">Ключ маршрутизации</param>
         public RabbitMqSynchronizationSender(string exchangeName, string queueName, string routingKey)
         {
-            _rabbitMqSender = new RabbitMqSender(exchangeName, queueName, routingKey);
+            _rabbitMqClient = new RabbitMqSyncModule(exchangeName, queueName, routingKey);
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace MasterSystem.Classes
         public void SendData(IDomainObject sendingObject)
         {
             var message = sendingObject.ConvertToJson();
-            _rabbitMqSender.SendMessageToQueue(message);
+            _rabbitMqClient.SendMessageToQueue(message);
         }
     }
 }

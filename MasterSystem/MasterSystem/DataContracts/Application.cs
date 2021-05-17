@@ -12,6 +12,8 @@ namespace MasterSystem.DataContracts
         [DataMember]
         public string Title { get; set; }
         [DataMember]
+        public string Status { get; set; }
+        [DataMember]
         public string Problem { get; set; }
         [DataMember]
         public string Contact { get; set; }

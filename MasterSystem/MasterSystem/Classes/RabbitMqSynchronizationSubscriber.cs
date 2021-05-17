@@ -4,7 +4,7 @@ namespace MasterSystem.Classes
 {
     public class RabbitMqSynchronizationSubscriber : ISynchronizationSubscriber
     {
-        private readonly RabbitMqSender _rabbitMqClient;
+        private readonly RabbitMqSyncModule _rabbitMqClient;
 
         /// <summary>
         /// Конструктор
@@ -12,7 +12,7 @@ namespace MasterSystem.Classes
         /// <param name="queueName">Название очереди</param>
         public RabbitMqSynchronizationSubscriber(string queueName)
         {
-            _rabbitMqClient = new RabbitMqSender(queueName);
+            _rabbitMqClient = new RabbitMqSyncModule(queueName);
         }
 
         /// <summary>
