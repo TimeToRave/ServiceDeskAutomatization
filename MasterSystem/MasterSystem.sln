@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterSystem", "MasterSystem\MasterSystem.csproj", "{8509F27C-037D-482E-AB24-31465A4B6FA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlaveSystem", "SlaveSystem\SlaveSystem.csproj", "{FBEB4B64-B530-4E59-BB4C-AA7330737C7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{8509F27C-037D-482E-AB24-31465A4B6FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8509F27C-037D-482E-AB24-31465A4B6FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8509F27C-037D-482E-AB24-31465A4B6FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBEB4B64-B530-4E59-BB4C-AA7330737C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEB4B64-B530-4E59-BB4C-AA7330737C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEB4B64-B530-4E59-BB4C-AA7330737C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEB4B64-B530-4E59-BB4C-AA7330737C7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
