@@ -28,15 +28,27 @@ namespace MasterSystem.Classes
         public void SendApplication(string applicationNumber)
         {
             Application application = DataOperator.GetApplication(applicationNumber);
+            SendApplication(application);
+        }
+        
+        /// <summary>
+        /// Выполняет отправку обращения в стороннюю систему
+        /// </summary>
+        /// <param name="application">Обращение</param>
+        public void SendApplication(Application application)
+        {
+            Console.WriteLine($">>> {application.Number}: {application.Title} -> {application.Status}");
+            
             _syncSender.SendData(application);
         }
 
+        /// <summary>
+        /// "Сохраняет" данные по обращению
+        /// </summary>
+        /// <param name="application"></param>
         public void SaveApplication(Application application)
         {
-
-            Console.WriteLine($"{application.Number}: {application.Title}");
-            
-            Thread.Sleep(10000);
+            Console.WriteLine($"<<< {application.Number}: {application.Title} -> {application.Status}");
         }
     }
 }
